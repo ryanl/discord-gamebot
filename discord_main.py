@@ -378,9 +378,13 @@ class DiscordInterface(discord.Client):
 
 def main():
   if len(sys.argv) != 1:
-    print_usage()
+    print("This command does not take args")
     sys.exit(1)
     
+  if OWNER_ID == 0 or SERVER == 0:
+    print("You must fill in the OWNER_ID and SERVER variables in discord_main.py")
+    sys.exit(1)
+
   d = DiscordInterface(
       server_id=SERVER,
       channel_name="general",
