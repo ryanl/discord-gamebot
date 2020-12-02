@@ -284,7 +284,6 @@ class DiscordInterface(discord.Client):
   async def on_ready(self):
     print('Logged on as {0}!'.format(self.user))
     self.loop.create_task(self.tick_task())
-    self.loop.create_task(upload_file("content.html", "<html><body>No game in progress</body></html>"))
 
   async def process_commands_that_ignore_test_mode(self, message):
     private_message = isinstance(message.channel, discord.DMChannel)
